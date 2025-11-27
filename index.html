@@ -172,31 +172,23 @@
             color: var(--text-muted);
         }
 
-        /* ========== CONTACT FORM ========== */
-        form {
-            max-width: 500px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .contact-info {
+            margin-top: 20px;
+            padding: 25px;
+            background: var(--card);
+            border-radius: 12px;
+            max-width: 450px;
+            line-height: 1.9;
         }
-
-        input, textarea {
-            background: var(--bg-light);
-            border: 1px solid #2A2A2D;
-            padding: 12px 15px;
-            border-radius: 8px;
-            color: var(--text);
-            outline: none;
+    
+        .contact-info a {
+            color: var(--primary);
+            transition: 0.2s;
         }
-
-        textarea { height: 120px; resize: vertical; }
-
-        .success {
-            margin-top: 15px;
-            color: #22c55e;
-            text-align: center;
-            display: none;
+    
+        .contact-info a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -329,18 +321,13 @@
 
     <!-- CONTACT -->
     <section id="contact">
-        <h2>Contact</h2>
+    <h2>Contact</h2>
 
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Votre nom" required>
-            <input type="email" id="email" placeholder="Votre email" required>
-            <textarea id="message" placeholder="Votre message" required></textarea>
-            <button class="btn" type="submit">Envoyer</button>
-        </form>
-
-        <div class="success" id="successMsg">Message envoyé avec succès !</div>
+    <div class="contact-info">
+            <p><strong>Téléphone :</strong> <a href="tel:+212600000000">+212 6 00 00 00 00</a></p>
+            <p><strong>Email :</strong> <a href="mailto:ysodki@virtualconnect.ma">ysodki@virtualconnect.ma</a></p>
+        </div>
     </section>
-
     <script>
         /* HEADER SCROLL */
         const header = document.getElementById("header");
@@ -373,3 +360,4 @@
 
 </body>
 </html>
+
