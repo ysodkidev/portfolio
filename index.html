@@ -5,103 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Développeur Full Stack</title>
 
-    <!-- Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ===========================
-            GLOBAL STYLE
-        ============================*/
-
         :root {
-            --primary: #4F46E5;
-            --primary-light: #6366F1;
-            --dark: #111827;
-            --gray: #4B5563;
-            --bg: #F9FAFB;
-            --white: #FFFFFF;
+            --primary: #6366F1;
+            --primary-dark: #4F46E5;
+            --bg: #0F0F11;
+            --bg-light: #18181B;
+            --text: #F4F4F5;
+            --text-muted: #A1A1AA;
+            --card: #1E1E21;
         }
 
         * {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: "Inter", sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
             background: var(--bg);
-            color: var(--dark);
+            color: var(--text);
             line-height: 1.6;
         }
 
         a { text-decoration: none; color: inherit; }
 
-        /* ===========================
-            HEADER
-        ============================*/
-
+        /* ========== HEADER ========== */
         header {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            background: rgba(255,255,255,0.9);
+            top: 0; left: 0;
+            padding: 18px 50px;
+            background: rgba(15, 15, 17, 0.8);
             backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
             transition: 0.3s;
         }
 
-        header.scrolled {
-            padding: 10px 50px;
-            background: rgba(255,255,255,0.95);
-        }
+        header.scrolled { padding: 10px 50px; }
 
-        header .logo {
-            font-size: 22px;
+        .logo {
+            font-size: 24px;
             font-weight: 700;
             color: var(--primary);
         }
 
-        header nav a {
+        nav a {
             margin-left: 25px;
-            font-weight: 500;
-            color: var(--dark);
+            transition: 0.2s;
+            color: var(--text);
         }
 
-        /* ===========================
-            HERO
-        ============================*/
+        nav a:hover { color: var(--primary); }
 
+        /* ========== SECTIONS ========== */
         section {
-            padding: 100px 12%;
+            padding: 110px 12%;
         }
 
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        /* ========== HERO ========== */
         #hero {
-            padding-top: 140px;
+            padding-top: 160px;
             text-align: center;
         }
 
-        #hero img {
-            width: 150px;
-            height: 150px;
-            border-radius: 20px;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
         #hero h1 {
-            font-size: 40px;
+            font-size: 48px;
             font-weight: 700;
         }
 
         #hero h2 {
             color: var(--primary);
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        #hero p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .btn {
@@ -110,70 +102,48 @@
             color: white;
             padding: 12px 25px;
             border-radius: 8px;
-            margin-top: 20px;
+            margin-top: 25px;
             transition: 0.3s;
         }
 
         .btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
+            background: var(--primary-dark);
+            transform: translateY(-3px);
         }
 
-        /* ===========================
-            ABOUT
-        ============================*/
-
-        #about p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: auto;
-            color: var(--gray);
-        }
-
-        /* ===========================
-            SKILLS
-        ============================*/
-
+        /* ========== SKILLS ========== */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
 
         .skill-card {
-            background: white;
+            background: var(--card);
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
+        .skill-card:hover { transform: translateY(-5px); }
 
-        /* ===========================
-            PROJECTS
-        ============================*/
+        .skill-card p { color: var(--text-muted); }
 
+        /* ========== PROJECTS ========== */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
 
         .project-card {
-            background: white;
+            background: var(--card);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             transition: 0.3s;
         }
 
-        .project-card:hover {
-            transform: scale(1.03);
-        }
+        .project-card:hover { transform: scale(1.03); }
 
         .project-card img {
             width: 100%;
@@ -185,29 +155,24 @@
             padding: 20px;
         }
 
-        /* ===========================
-            TIMELINE
-        ============================*/
+        .project-card p { color: var(--text-muted); }
 
+        /* ========== TIMELINE ========== */
         .timeline {
             border-left: 3px solid var(--primary);
-            padding-left: 30px;
-            margin-top: 40px;
+            padding-left: 25px;
+            margin-top: 30px;
         }
 
         .timeline-item {
             margin-bottom: 25px;
         }
 
-        .timeline-item h3 {
-            font-size: 20px;
-            font-weight: 600;
+        .timeline-item p {
+            color: var(--text-muted);
         }
 
-        /* ===========================
-            CONTACT
-        ============================*/
-
+        /* ========== CONTACT FORM ========== */
         form {
             max-width: 500px;
             margin: auto;
@@ -217,27 +182,25 @@
         }
 
         input, textarea {
+            background: var(--bg-light);
+            border: 1px solid #2A2A2D;
             padding: 12px 15px;
             border-radius: 8px;
-            border: 1px solid #ddd;
+            color: var(--text);
             outline: none;
         }
 
-        textarea {
-            resize: vertical;
-            height: 120px;
-        }
+        textarea { height: 120px; resize: vertical; }
 
         .success {
             margin-top: 15px;
-            color: green;
+            color: #22c55e;
             text-align: center;
             display: none;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            header { padding: 12px 25px; }
+            header { padding: 15px 25px; }
             header nav a { margin-left: 12px; }
         }
     </style>
@@ -260,10 +223,12 @@
 
     <!-- HERO -->
     <section id="hero">
-        <img src="https://i.pravatar.cc/300" alt="Photo Profil">
         <h1>Yahya Sodki</h1>
         <h2>Développeur Web Full Stack</h2>
-        <p>Je crée des applications web modernes, performantes et élégantes.</p>
+        <p>
+            Développeur web full stack avec 4 ans d'expérience.  
+            Spécialisé en création d'applications modernes, performantes et scalables.
+        </p>
         <a class="btn" href="#">Télécharger CV</a>
     </section>
 
@@ -271,9 +236,9 @@
     <section id="about">
         <h2>À propos</h2>
         <p>
-            Passionné par le développement web, j'aime concevoir des applications
-            rapides, intuitives et maintenables. Full Stack JS, je maîtrise aussi bien
-            la logique backend que les interfaces modernes.
+            Je développe des solutions web sur mesure, optimisées et orientées performance.  
+            Je maîtrise aussi bien les technologies frontend modernes que les architectures backend robustes,
+            avec une expérience solide en gestion de serveurs, optimisation SEO et maintenance de plateformes complexes.
         </p>
     </section>
 
@@ -282,20 +247,35 @@
         <h2>Compétences</h2>
 
         <div class="skills-grid">
+
             <div class="skill-card">
                 <h3>Frontend</h3>
-                <p>HTML, CSS, JavaScript, React, Tailwind</p>
+                <p>
+                    HTML, CSS, JavaScript, Tailwind CSS, Bootstrap, React.js
+                </p>
             </div>
 
             <div class="skill-card">
                 <h3>Backend</h3>
-                <p>Node.js, Express, PHP, Laravel, MySQL, MongoDB</p>
+                <p>
+                    PHP, Node.js, Express.js, MySQL/SQL, MongoDB
+                </p>
             </div>
 
             <div class="skill-card">
-                <h3>DevOps</h3>
-                <p>Docker, GitHub Actions, CI/CD, Linux, Nginx</p>
+                <h3>CMS & SEO</h3>
+                <p>
+                    WordPress, WooCommerce, SEO, optimisation de site
+                </p>
             </div>
+
+            <div class="skill-card">
+                <h3>Serveurs & DevOps</h3>
+                <p>
+                    Gestion de serveur, Linux, Nginx, Apache, Docker, CI/CD
+                </p>
+            </div>
+
         </div>
     </section>
 
@@ -304,31 +284,29 @@
         <h2>Projets</h2>
 
         <div class="projects-grid">
-
             <div class="project-card">
                 <img src="https://picsum.photos/400/250" alt="">
                 <div class="content">
-                    <h3>Application de gestion</h3>
-                    <p>Outil de gestion des projets, tâches et équipes.</p>
+                    <h3>Dashboard complet</h3>
+                    <p>Application de gestion avec statistiques, API et authentification sécurisée.</p>
                 </div>
             </div>
 
             <div class="project-card">
                 <img src="https://picsum.photos/401/250" alt="">
                 <div class="content">
-                    <h3>Portfolio dynamique</h3>
-                    <p>Portfolio administrable développé en React + Node.js</p>
+                    <h3>Plateforme e-commerce</h3>
+                    <p>Solution WooCommerce optimisée avec paiements, SEO et automatisations.</p>
                 </div>
             </div>
 
             <div class="project-card">
                 <img src="https://picsum.photos/399/250" alt="">
                 <div class="content">
-                    <h3>E-commerce</h3>
-                    <p>Boutique complète avec gestion commandes & paiements.</p>
+                    <h3>Portfolio React</h3>
+                    <p>Portfolio dynamique en React.js + backend Node.js/Express.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -338,13 +316,13 @@
 
         <div class="timeline">
             <div class="timeline-item">
-                <h3>Développeur Full Stack - XYZ</h3>
-                <p>2023 - Aujourd'hui</p>
+                <h3>Développeur Web Full Stack</h3>
+                <p>4 ans d'expérience — développements sur mesure, optimisation & maintenance avancée.</p>
             </div>
 
             <div class="timeline-item">
-                <h3>Licence en Informatique - ENSA</h3>
-                <p>2020 - 2023</p>
+                <h3>Spécialisation WordPress / WooCommerce</h3>
+                <p>Développement de thèmes, plugins, optimisation SEO & performance.</p>
             </div>
         </div>
     </section>
@@ -364,37 +342,32 @@
     </section>
 
     <script>
-        /* HEADER SCROLL EFFECT */
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
+        /* HEADER SCROLL */
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", () => {
+            header.classList.toggle("scrolled", window.scrollY > 50);
         });
 
         /* CONTACT FORM */
-        const form = document.getElementById('contactForm');
-        const successMsg = document.getElementById('successMsg');
+        const form = document.getElementById("contactForm");
+        const successMsg = document.getElementById("successMsg");
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            // Simple validation
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-            if (name === "" || email === "" || message === "") {
+            if (!name || !email || !message) {
                 alert("Veuillez remplir tous les champs.");
                 return;
             }
 
-            // Simulate sending
             successMsg.style.display = "block";
             form.reset();
 
-            setTimeout(() => {
-                successMsg.style.display = "none";
-            }, 3000);
+            setTimeout(() => successMsg.style.display = "none", 3000);
         });
     </script>
 
